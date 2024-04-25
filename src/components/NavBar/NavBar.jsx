@@ -5,8 +5,8 @@ import logo from '../../assets/logo/f968c78672567853f8bf8907e903a91d.jpg'
 const NavBar = () => {
      const navLinks = <>
               <li> <NavLink to='/'>Home</NavLink> </li>
-              <li> <NavLink to='/art&crafts'>All Art & craft Items</NavLink> </li>
               <li> <NavLink to='/addCraft'>Add Craft Item</NavLink> </li>
+              <li> <NavLink to='/art&crafts'>All Art & craft Items</NavLink> </li>
               <li> <NavLink to='/MyCraftList'> My Art&Craft List</NavLink> </li>
               <li> <NavLink to='/login'>Login</NavLink> </li>
               <li> <NavLink to='/register'> Register</NavLink> </li>
