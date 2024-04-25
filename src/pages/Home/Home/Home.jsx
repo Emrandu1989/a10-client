@@ -1,10 +1,14 @@
+import Banner from "../../../components/Banner/Banner";
+import Vision from "../../../components/VisionSection/Vision";
+
 
 
 const Home = () => {
     return (
-        <div>
-              <h2>This is Home page</h2>
-        </div>
+        <>
+             <Banner/>
+             <Vision />
+        </>
     );
 };
 
