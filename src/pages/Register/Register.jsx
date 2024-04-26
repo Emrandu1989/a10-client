@@ -1,10 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Register = () => {
       const {createUser} = useContext(AuthContext)
+
+      const [showPassword, setShowPassword] = useState(false);
+      console.log(showPassword)
       
     const handleRegister = e =>{
           e.preventDefault();
@@ -62,11 +66,16 @@ const Register = () => {
           </label>
           <input type="email" name="email" placeholder="email" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          <input type={showPassword ? "text" : "password" } name="password" placeholder="password" className="input input-bordered" required />
+          <p className="text-2xl absolute right-5 bottom-3" onClick={()=>setShowPassword(!showPassword)}> 
+            {
+                showPassword ?  <FaEyeSlash /> : <FaRegEye /> 
+            }
+          </p>
        
         </div>
         <div className="form-control">
