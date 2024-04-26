@@ -1,6 +1,48 @@
+import Swal from 'sweetalert2'
 
 
 const AddCraft = () => {
+  const handleAddCraft = (e) =>{
+       e.preventDefault();
+       const form = e.target;
+       const ItemName = form.ItemName.value;
+       const Subcategory_Name = form.Subcategory_Name.value;
+       const UserName = form.UserName.value;
+       const UserEmail = form.UserEmail.value;
+       const Customization = form.Customization.value;
+       const Processing_time = form.Processing_time.value;
+       const StockStatus = form.StockStatus.value;
+       const Price = form.Price.value;
+       const Ratings = form.Ratings.value;
+       const ImageUrl = form.ImageUrl.value;
+       const Description = form.Description.value;
+       const products = {ItemName,Subcategory_Name,UserName,UserEmail,Customization,Processing_time,StockStatus,Price,Ratings,ImageUrl,Description}
+       console.log(products)
+
+       fetch("http://localhost:5000/crafts",{
+         method:"POST",
+         headers: {
+           'content-type': 'application/json'
+         },
+         body:JSON.stringify(products)
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        console.log(data)
+        if(data.insertedId){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Product added Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+       })
+
+
+
+  }
     return (
         <>
                <h2 className="text-center text-2xl font-bold text-gray-500 my-5">Add Your Product</h2>
@@ -8,7 +50,7 @@ const AddCraft = () => {
  
   
   
-      <form className="card-body">
+      <form onSubmit={handleAddCraft} className="card-body">
           <div className="flex gap-4 ">
           <div className="form-control">
           <label className="label">
@@ -84,10 +126,12 @@ const AddCraft = () => {
           <label className="label">
             <span className="label-text text-xl font-semibold">Short Description</span>
           </label>
-            <textarea name="D escription" id="" cols="10" rows="5"></textarea>
+            <textarea name="Description" id="" cols="10" rows="5"></textarea>
         </div>
           <div className="mt-5 ">
-                <button className="w-full btn btn-primary">Submit</button>
+                
+                <input   className="w-full btn btn-primary" type="submit" value="AddProduct" />
+                
        
           </div>
         
