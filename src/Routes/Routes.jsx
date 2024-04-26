@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Details from "../pages/Details/Details";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
          },
          {
             path: '/details/:id',
-            element: <Details />,
+            element: <PrivateRoute><Details /></PrivateRoute>,
             loader:() => fetch("http://localhost:5000/crafts")
          },
          {

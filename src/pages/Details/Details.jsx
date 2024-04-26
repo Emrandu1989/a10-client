@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 
 const Details = () => {
+    const {users} = useContext(AuthContext)
+    
       const products = useLoaderData();
        console.log(products)
        const {id} = useParams();
