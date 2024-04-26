@@ -15,7 +15,7 @@ const NavBar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/addCraft'>Add Craft Item</NavLink></li>
       <li><NavLink to='/allArtAndCraft'>All Art & Craft Items</NavLink></li>
-      <li><NavLink to='/MyCraftList'>My Art & Craft List</NavLink></li>
+      <li><NavLink to='/myArt&CraftList'>My Art & Craft List</NavLink></li>
     </>
   );
 
