@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ArtAndCraftCrad from "./ArtAndCraftCrad";
 
 
@@ -49,7 +49,9 @@ const AllArtAndCrafts = () => {
         </td>
         <td>$ {singleProduct.Price}</td>
         <th>
+          <Link to={`/details/${singleProduct._id}`}>
           <button className="btn btn-ghost btn-xs">View Details</button>
+           </Link>
         </th>
       </tr>  )}
                
