@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from 'sweetalert2';
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
@@ -9,6 +9,7 @@ const Register = () => {
 
       const [showPassword, setShowPassword] = useState(false);
       console.log(showPassword)
+      const navigate = useNavigate()
       
     const handleRegister = e =>{
           e.preventDefault();
@@ -35,6 +36,7 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate('/')
           })
           .catch(error=>{
             console.error(error)

@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 
 const Details = () => {
-    const {users} = useContext(AuthContext)
+  
     
       const products = useLoaderData();
        console.log(products)
@@ -23,10 +23,10 @@ const Details = () => {
   </figure>
   <div className="card-body items-center text-center">
    
-    <h2 className="card-title">{ItemName}</h2>
+    <h2 className="card-title">ProductName: {ItemName}</h2>
     <h2 className="card-title">{Subcategory_name}</h2>
      
-    <h2 className="card-title">{UserName}</h2>
+    <h2 className="card-title">CustomerName:{UserName}</h2>
     <h2 className="card-title">{UserEmail}</h2>
      <div className="flex gap-12">
      <p>Price: $ {Price}</p>

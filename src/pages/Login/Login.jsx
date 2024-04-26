@@ -1,6 +1,6 @@
 import { useLottie } from "lottie-react";
 import loitte from '../../../public/Animation - 1714122537617.json'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from 'sweetalert2'
@@ -12,7 +12,9 @@ const Login = () => {
       };
       const { View } = useLottie(options);
      
-      const {signIn,googleLogin,gitHubLogin} = useContext(AuthContext)
+      const {signIn,googleLogin,gitHubLogin} = useContext(AuthContext);
+       const navigate = useNavigate();
+       const location = useLocation()
       const handleLogin = e =>{
          e.preventDefault();
          const form = e.target;
@@ -31,6 +33,9 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              setTimeout(()=>{
+                  navigate(location?.state ? location.state : '/')
+              }, 1000)
          })
          .catch(error=>{
             console.error(error)
