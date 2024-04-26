@@ -1,14 +1,17 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../../providers/AuthProviders';
 
 
 const AddCraft = () => {
+  const {users} = useContext(AuthContext)
   const handleAddCraft = (e) =>{
        e.preventDefault();
        const form = e.target;
        const ItemName = form.ItemName.value;
        const Subcategory_Name = form.Subcategory_Name.value;
        const UserName = form.UserName.value;
-       const UserEmail = form.UserEmail.value;
+       const email = users.email;
        const Customization = form.Customization.value;
        const Processing_time = form.Processing_time.value;
        const StockStatus = form.StockStatus.value;
@@ -16,7 +19,7 @@ const AddCraft = () => {
        const Ratings = form.Ratings.value;
        const ImageUrl = form.ImageUrl.value;
        const Description = form.Description.value;
-       const products = {ItemName,Subcategory_Name,UserName,UserEmail,Customization,Processing_time,StockStatus,Price,Ratings,ImageUrl,Description}
+       const products = {ItemName,Subcategory_Name,UserName,email,Customization,Processing_time,StockStatus,Price,Ratings,ImageUrl,Description}
        console.log(products)
 
        fetch("http://localhost:5000/crafts",{
@@ -77,7 +80,7 @@ const AddCraft = () => {
           <label className="label">
             <span className="label-text text-xl font-semibold">UserEmail</span>
           </label>
-          <input type="email" name="UserEmail" placeholder="UserEmail" className="input w-[500px] input-bordered" required />
+          <input type="email" name="email" defaultValue={users.email} className="input w-[500px] input-bordered" required />
         </div>
           </div>
           <div className="flex gap-4 ">
