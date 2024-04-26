@@ -12,7 +12,7 @@ const Login = () => {
       };
       const { View } = useLottie(options);
      
-      const {signIn,googleLogin} = useContext(AuthContext)
+      const {signIn,googleLogin,gitHubLogin} = useContext(AuthContext)
       const handleLogin = e =>{
          e.preventDefault();
          const form = e.target;
@@ -46,7 +46,7 @@ const Login = () => {
               Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "User Login successfully",
+                title: "Google Login successfully",
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -54,6 +54,23 @@ const Login = () => {
            .catch(error=>{
             console.error(error)
            })
+      }
+
+      const handleGitHubLogin = () =>{
+        gitHubLogin()
+        .then(result=>{
+            console.log(result)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "GitHub Login successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        })
+        .catch(error=>{
+             console.error(error)
+        })
       }
       
     return (
@@ -88,7 +105,7 @@ const Login = () => {
       </form>
       <div className="space-x-12 text-center -mt-5 mb-5">
               <button onClick={handleGoogleLogin} className="btn btn-outline">Google</button>
-              <button className="btn btn-outline">GitHub</button>
+              <button onClick={handleGitHubLogin} className="btn btn-outline">GitHub</button>
         </div>
     </div>
   </div>
