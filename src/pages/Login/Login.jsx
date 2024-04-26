@@ -12,7 +12,7 @@ const Login = () => {
       };
       const { View } = useLottie(options);
      
-      const {signIn} = useContext(AuthContext)
+      const {signIn,googleLogin} = useContext(AuthContext)
       const handleLogin = e =>{
          e.preventDefault();
          const form = e.target;
@@ -38,7 +38,23 @@ const Login = () => {
 
 
       }
-
+           
+      const handleGoogleLogin=() =>{
+           googleLogin()
+           .then(result=>{
+              console.log(result.user)
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Login successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+           })
+           .catch(error=>{
+            console.error(error)
+           })
+      }
       
     return (
         <>
@@ -68,7 +84,12 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <p>New to this Site Please <Link to='/register' className="btn btn-link">Register</Link> </p>
+     
       </form>
+      <div className="space-x-12 text-center -mt-5 mb-5">
+              <button onClick={handleGoogleLogin} className="btn btn-outline">Google</button>
+              <button className="btn btn-outline">GitHub</button>
+        </div>
     </div>
   </div>
 </div>
