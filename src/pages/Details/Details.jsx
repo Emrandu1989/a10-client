@@ -34,9 +34,7 @@ const Details = () => {
          <p>Ratings: {Ratings} </p>
      </div>
       <p>Description: { Description}</p>
-    <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
+
   </div>
 </div>
         </>
