@@ -19,7 +19,8 @@ const AddCraft = () => {
        const Ratings = form.Ratings.value;
        const ImageUrl = form.ImageUrl.value;
        const Description = form.Description.value;
-       const products = {ItemName,Subcategory_Name,UserName,email,Customization,Processing_time,StockStatus,Price,Ratings,ImageUrl,Description}
+       const uid = form.uid.value;
+       const products = {ItemName,Subcategory_Name,UserName,email,Customization,Processing_time,StockStatus,Price,Ratings,ImageUrl,Description, uid}
        console.log(products)
 
        fetch("http://localhost:5000/crafts",{
@@ -130,6 +131,7 @@ const AddCraft = () => {
             <span className="label-text text-xl font-semibold">Short Description</span>
           </label>
             <textarea name="Description" id="" cols="10" rows="5"></textarea>
+            <input type="text" name="uid" defaultValue={users.uid} className="input input-bordered sr-only" />
         </div>
           <div className="mt-5 ">
                 

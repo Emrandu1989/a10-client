@@ -9,44 +9,63 @@ import Details from "../pages/Details/Details";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import MyArtAndCraft from "../pages/MyArt&Craft/MyArtAndCraft";
+import UpdatePage from "../pages/UpdatePage/UpdatePage";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayOut/>,
-      errorElement:<ErrorPage/>,
-      children:[
-         {
-            path: '/',
-            element: <Home />
-         },
-         {
-            path: '/addCraft',
-            element: <AddCraft />
-         },
-         {
-            path: '/myArt&CraftList',
-            element: <MyArtAndCraft />
-         },
-         {
-            path: '/allArtAndCraft',
-            element: <AllArtAndCrafts />,
-            loader:() => fetch("http://localhost:5000/crafts")
-         },
-         {
-            path: '/details/:id',
-            element: <PrivateRoute><Details /></PrivateRoute>,
-            loader:() => fetch("http://localhost:5000/crafts")
-         },
-         {
-            path: '/login',
-            element: <Login />
-         },
-         {
-            path: '/register',
-            element: <Register />
-         },
-      ]
-    },
-  ]);
-export default router
+  {
+    path: "/",
+    element: <MainLayOut />,
+    // errorElement:<ErrorPage/>,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/addCraft",
+        element: <AddCraft />,
+      },
+      {
+        path: "updateProduct/:id",
+        element: <UpdatePage />,
+        loader:({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+      },
+      {
+        path: "/myArt&CraftList",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <MyArtAndCraft />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allArtAndCraft",
+        element: <AllArtAndCrafts />,
+        loader: () => fetch("http://localhost:5000/crafts"),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/crafts"),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
+  },
+]);
+export default router;
