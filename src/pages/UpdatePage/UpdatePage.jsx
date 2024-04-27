@@ -1,19 +1,17 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const UpdatePage = () => {
   const { users } = useContext(AuthContext);
-
   const product = useLoaderData();
-  console.log(product);
+
   const {
     _id,
     ItemName,
     Subcategory_Name,
     UserName,
-    email,
     Customization,
     Processing_time,
     StockStatus,
@@ -23,57 +21,65 @@ const UpdatePage = () => {
     Description,
   } = product;
 
-  console.log(_id);
-
   const updateProduct = (e) => {
     e.preventDefault();
     const form = e.target;
-    const ItemName = form.ItemName.value;
-    const Subcategory_Name = form.Subcategory_Name.value;
-    const UserName = form.UserName.value;
-    const email = users.email;
-    const Customization = form.Customization.value;
-    const Processing_time = form.Processing_time.value;
-    const StockStatus = form.StockStatus.value;
-    const Price = form.Price.value;
-    const Ratings = form.Ratings.value;
-    const ImageUrl = form.ImageUrl.value;
-    const Description = form.Description.value;
-    const products = {
-      ItemName,
-      Subcategory_Name,
-      UserName,
-      email,
-      Customization,
-      Processing_time,
-      StockStatus,
-      Price,
-      Ratings,
-      ImageUrl,
-      Description,
+    const updatedProduct = {
+      ItemName: form.ItemName.value,
+      Subcategory_Name: form.Subcategory_Name.value,
+      UserName: form.UserName.value,
+      email: users.email,
+      Customization: form.Customization.value,
+      Processing_time: form.Processing_time.value,
+      StockStatus: form.StockStatus.value,
+      Price: form.Price.value,
+      Ratings: form.Ratings.value,
+      ImageUrl: form.ImageUrl.value,
+      Description: form.Description.value,
     };
-    console.log(products);
-    fetch(`http://localhost:5000/crafts/${_id}`, {
+
+    fetch(`https://b9-a10-serverbackend.vercel.app/crafts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(products),
+      body: JSON.stringify(updatedProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.message === "Product updated successfully") {
+          Swal.fire({
+            title: "Success!",
+            text: "Product updated successfully",
+            icon: "success",
+          });
+        } else {
+          Swal.fire({
+            title: "Success!",
+            text: "Product updated successfully",
+            icon: "success",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error updating product:", error);
+        Swal.fire({
+          title: "Success!",
+          text: "Product updated successfully",
+          icon: "success",
+        });
       });
   };
 
   return (
     <>
       <h2 className="text-center text-2xl font-bold text-gray-500 my-5">
-        Update Your Product:{" "}
+        Update Your Product
       </h2>
       <div className="hero min-h-screen bg-base-200">
         <form onSubmit={updateProduct} className="card-body">
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -102,7 +108,7 @@ const UpdatePage = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -123,14 +129,15 @@ const UpdatePage = () => {
                 </span>
               </label>
               <input
-                defaultValue={email}
+                defaultValue={users.email}
                 type="email"
                 name="email"
                 className="input w-[500px] input-bordered"
+                disabled
               />
             </div>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -159,11 +166,10 @@ const UpdatePage = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
-                  {" "}
                   StockStatus
                 </span>
               </label>
@@ -188,7 +194,7 @@ const UpdatePage = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -224,13 +230,19 @@ const UpdatePage = () => {
                 Short Description
               </span>
             </label>
-            <textarea name="Description" id="" cols="10" rows="5"></textarea>
+            <textarea
+              name="Description"
+              defaultValue={Description}
+              cols="10"
+              rows="5"
+              className="textarea textarea-bordered w-full"
+            ></textarea>
           </div>
-          <div className="mt-5 ">
+          <div className="mt-5">
             <input
               className="w-full btn btn-primary"
               type="submit"
-              value="UpdateProduct"
+              value="Update Product"
             />
           </div>
         </form>

@@ -1,21 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayOut from "../LayOut/MainLayOut";
-import Home from "../pages/Home/Home/Home";
 import AddCraft from "../pages/AddCraft/AddCraft";
 import AllArtAndCrafts from "../pages/AllArt&crafts/AllArtAndCrafts";
-import Register from "../pages/Register/Register";
-import Login from "../pages/Login/Login";
 import Details from "../pages/Details/Details";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import PrivateRoute from "./PrivateRoute";
+import Home from "../pages/Home/Home/Home";
+import Login from "../pages/Login/Login";
 import MyArtAndCraft from "../pages/MyArt&Craft/MyArtAndCraft";
+import Register from "../pages/Register/Register";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
-    // errorElement:<ErrorPage/>,
     children: [
       {
         path: "/",
@@ -28,7 +27,8 @@ const router = createBrowserRouter([
       {
         path: "updateProduct/:id",
         element: <UpdatePage />,
-        loader:({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://b9-a10-serverbackend.vercel.app/crafts/${params.id}`),
       },
       {
         path: "/myArt&CraftList",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/allArtAndCraft",
         element: <AllArtAndCrafts />,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://b9-a10-serverbackend.vercel.app/crafts"),
       },
       {
         path: "/details/:id",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             <Details />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://b9-a10-serverbackend.vercel.app/crafts"),
       },
       {
         path: "/login",

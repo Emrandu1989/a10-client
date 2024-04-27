@@ -24,7 +24,7 @@ const CraftCard = ({ data, datas, setDatas }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/crafts/${_id}`, {
+        fetch(`https://b9-a10-serverbackend.vercel.app/crafts/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -68,7 +68,10 @@ const CraftCard = ({ data, datas, setDatas }) => {
             <Link to={`/updateProduct/${data._id}`}>
               <button className="btn btn-primary">Update</button>
             </Link>
-            <button onClick={() => handleDelete(data._id)} className="btn bg-orange-500">
+            <button
+              onClick={() => handleDelete(data._id)}
+              className="btn bg-orange-500"
+            >
               Delete
             </button>
           </div>
