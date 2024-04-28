@@ -62,8 +62,8 @@ const AddCraft = () => {
         Add Your Product
       </h2>
       <div className="hero min-h-screen bg-base-200">
-        <form onSubmit={handleAddCraft} className="card-body">
-          <div className="flex gap-4 ">
+        <form onSubmit={handleAddCraft} className="card-body -ml-8">
+          <div className="flex md:flex-row flex-col gap-4 ">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -182,7 +182,7 @@ const AddCraft = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex md:flex-row flex-col gap-4 ">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl font-semibold">
@@ -193,7 +193,7 @@ const AddCraft = () => {
                 type="number"
                 name="Ratings"
                 placeholder="out of 5"
-                className="input w-[300px] input-bordered"
+                className="input lg:w-[300px] input-bordered"
                 required
               />
             </div>
@@ -207,7 +207,7 @@ const AddCraft = () => {
                 type="text"
                 name="ImageUrl"
                 placeholder="ImageUrl"
-                className="input w-[700px] input-bordered"
+                className="input md:w-[700px] input-bordered"
                 required
               />
             </div>
@@ -226,7 +226,7 @@ const AddCraft = () => {
               className="input input-bordered sr-only"
             />
           </div>
-          <div className="mt-5 ">
+          <div className="mt-5 w-1/2 md:w-full px-2 ">
             <input
               className="w-full btn btn-primary"
               type="submit"
