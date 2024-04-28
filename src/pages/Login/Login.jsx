@@ -39,6 +39,13 @@ const Login = () => {
          })
          .catch(error=>{
             console.error(error)
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: error,
+              showConfirmButton: false,
+              timer: 1500
+            });
          })
 
 
@@ -75,6 +82,13 @@ const Login = () => {
         })
         .catch(error=>{
              console.error(error)
+             Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: error,
+              showConfirmButton: false,
+              timer: 1500
+            });
         })
       }
       

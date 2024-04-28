@@ -6,8 +6,13 @@ import  img4 from '../../assets/banner/rope-and-jute-old-vintage-background-conc
 const Banner = () => {
     return (
         <>
-            <div className="carousel w-full  h-[800px]">
+            <div className="carousel relative w-full  h-[800px]">
   <div id="slide1" className="carousel-item relative w-full">
+     <div className='absolute top-1/3 left-1/3 space-y-4 text-blue-100 w-[900px]'> 
+           <h1 className='text-5xl text-center font-bold'> J&W Store</h1>
+         <h2 className='text-2xl  font-bold'>Make Your Dream Furniture by Our Expert Engineer</h2>
+          <p>You can make your any kind of Furniture by us.And You Can customize your design as you want.You can also get ready made design to our shop</p>
+     </div>
     <img src={img1} className="w-full" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <a href="#slide4" className="btn btn-circle">❮</a> 
@@ -15,6 +20,11 @@ const Banner = () => {
     </div>
   </div> 
   <div id="slide2" className="carousel-item relative w-full">
+  <div className='absolute top-1/3 left-1/3 space-y-4 text-blue-100 w-[900px]'> 
+           <h1 className='text-5xl text-center font-bold'> J&W Store</h1>
+         <h2 className='text-2xl  font-bold'>Make Your Dream Furniture by Our Expert Engineer</h2>
+          <p>You can make your any kind of Furniture by us.And You Can customize your design as you want.You can also get ready made design to our shop</p>
+     </div>
     <img src={img2} className="w-full" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <a href="#slide1" className="btn btn-circle">❮</a> 
@@ -22,6 +32,11 @@ const Banner = () => {
     </div>
   </div> 
   <div id="slide3" className="carousel-item relative w-full">
+  <div className='absolute top-1/3 left-1/3 space-y-4 text-blue-100 w-[900px]'> 
+           <h1 className='text-5xl text-center font-bold'> J&W Store</h1>
+         <h2 className='text-2xl  font-bold'>Make Your Dream Furniture by Our Expert Engineer</h2>
+          <p>You can make your any kind of Furniture by us.And You Can customize your design as you want.You can also get ready made design to our shop</p>
+     </div>
     <img src={img3} className="w-full" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <a href="#slide2" className="btn btn-circle">❮</a> 
@@ -29,6 +44,11 @@ const Banner = () => {
     </div>
   </div> 
   <div id="slide4" className="carousel-item relative w-full">
+  <div className='absolute top-1/3 left-1/3 space-y-4 text-white bg-slate-400 opacity-90 p-5 w-[900px]'> 
+           <h1 className='text-5xl text-center font-bold'> J&W Store</h1>
+         <h2 className='text-2xl  font-bold'>Make Your Dream Furniture by Our Expert Engineer</h2>
+          <p>You can make your any kind of Furniture by us.And You Can customize your design as you want.You can also get ready made design to our shop</p>
+     </div>
     <img src={img4} className="w-full" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <a href="#slide3" className="btn btn-circle">❮</a> 

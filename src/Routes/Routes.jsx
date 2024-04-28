@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCraft",
-        element: <AddCraft />,
+        element: <PrivateRoute><AddCraft /> </PrivateRoute>,
       },
       {
         path: "/about",

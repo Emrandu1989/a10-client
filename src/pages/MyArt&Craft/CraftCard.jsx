@@ -49,22 +49,22 @@ const CraftCard = ({ data, datas, setDatas }) => {
   return (
     <>
       {isVisible && (
-        <div className="flex flex-row justify-between items-center bg-base-100 px-5 shadow-xl">
+        <div className="flex flex-col my-5 py-5 lg:flex-row justify-between items-center bg-base-100 px-5 shadow-xl">
           <figure>
             <img
-              className="w-[300px] h-[350px] rounded-xl"
+              className="lg:w-[300px] h-[350px] rounded-xl"
               src={data.ImageUrl}
               alt="Craft"
             />
           </figure>
-          <div className="space-y-3">
+          <div className="space-y-3 my-2">
             <h2 className="card-title">{data.ItemName}</h2>
             <p>Price: $ {data.Price}</p>
             <p>Ratings: {data.Ratings}</p>
             <p>Customization: {data.Customization}</p>
             <p>StockStatus: {data.StockStatus}</p>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex my-2 lg:flex-col gap-6">
             <Link to={`/updateProduct/${data._id}`}>
               <button className="btn btn-primary">Update</button>
             </Link>

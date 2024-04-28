@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
 const AddCraft = () => {
   const { users } = useContext(AuthContext);
+   const navigate = useNavigate()
   const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -53,6 +55,7 @@ const AddCraft = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+           navigate('/myArt&CraftList')
         }
       });
   };
