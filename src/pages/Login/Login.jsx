@@ -62,6 +62,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate(location?.state ? location.state : '/')
            })
            .catch(error=>{
             console.error(error)
@@ -79,6 +80,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate(location?.state ? location.state : '/')
         })
         .catch(error=>{
              console.error(error)
