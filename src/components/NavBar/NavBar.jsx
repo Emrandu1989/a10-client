@@ -101,7 +101,7 @@ const NavBar = () => {
         </div>
         <a className="btn btn-ghost text-xl lg:text-2xl -mt-6 text-orange-500">
           J&W Store
-          <img className="lg:w-[150px] h-[100px]" src={logo} alt="" />
+          <img className="lg:w-[150px] h-[60px] mt-3 rounded-full" src={logo} alt="" />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
