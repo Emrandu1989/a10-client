@@ -3,8 +3,9 @@
 const Footer = () => {
     return (
         <>
-              <footer className="footer p-10 bg-base-200 text-base-content">
-  <nav>
+              <footer className="footer px-2 py-4  lg:p-10 bg-base-200 text-base-content">
+   <div className="flex">
+   <nav className="flex flex-col">
     <h6 className="footer-title">Services</h6> 
     <a className="link link-hover">Branding</a>
     <a className="link link-hover">Design</a>
@@ -24,6 +25,7 @@ const Footer = () => {
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
   </nav> 
+   </div>
   <form>
     <h6 className="footer-title">Newsletter</h6> 
     <fieldset className="form-control w-80">

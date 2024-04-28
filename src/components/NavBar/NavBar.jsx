@@ -57,7 +57,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar h-[150px] bg-base-100">
+    <div className="navbar flex justify-between h-[150px] bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -83,18 +83,18 @@ const NavBar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl -mt-6 text-orange-500">
+        <a className="btn btn-ghost text-xl lg:text-2xl -mt-6 text-orange-500">
           J&W Store
-          <img className="w-[150px] h-[100px]" src={logo} alt="" />
+          <img className="lg:w-[150px] h-[100px]" src={logo} alt="" />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end space-x-5">
+      <div className="navbar-end hidden lg:block  space-x-5">
         {users ? (
           <>
-            <button onClick={handleLogOut} className="btn btn-outline">
+            <button onClick={handleLogOut} className="btn  btn-outline">
               LogOut
             </button>
           </>
@@ -108,7 +108,9 @@ const NavBar = () => {
             </Link>
           </>
         )}
-        <label className="cursor-pointer grid place-items-center">
+       
+      </div>
+      <label className="cursor-pointer grid place-items-center">
           <input
             type="checkbox"
             value="synthwave"
@@ -145,7 +147,6 @@ const NavBar = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-      </div>
     </div>
   );
 };
