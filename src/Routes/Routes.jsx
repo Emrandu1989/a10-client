@@ -10,6 +10,7 @@ import MyArtAndCraft from "../pages/MyArt&Craft/MyArtAndCraft";
 import Register from "../pages/Register/Register";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import PrivateRoute from "./PrivateRoute";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/addCraft",
         element: <AddCraft />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "updateProduct/:id",

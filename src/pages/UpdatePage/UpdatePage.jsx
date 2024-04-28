@@ -133,7 +133,7 @@ const UpdatePage = () => {
                 type="email"
                 name="email"
                 className="input w-[500px] input-bordered"
-                disabled
+                
               />
             </div>
           </div>
