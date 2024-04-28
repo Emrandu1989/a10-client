@@ -81,6 +81,25 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLinks}
+            <div className="space-x-5 md:hidden mt-5">
+        {users ? (
+          <>
+            <button onClick={handleLogOut} className="btn  btn-outline">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn btn-outline">Login</button>
+            </Link>
+            <Link to="/register">
+              <button className="btn btn-outline">Register</button>
+            </Link>
+          </>
+        )}
+       
+      </div>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl lg:text-2xl -mt-6 text-orange-500">
@@ -89,9 +108,14 @@ const NavBar = () => {
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {navLinks}
+        
+          
+          </ul>
+        
       </div>
-      <div className="navbar-end hidden lg:block  space-x-5">
+      <div className="navbar-end hidden  md:block  md:space-x-5">
         {users ? (
           <>
             <button onClick={handleLogOut} className="btn  btn-outline">

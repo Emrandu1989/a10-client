@@ -7,8 +7,8 @@ import logo5 from "../../assets/logo/wood-industries-company-logo-with-the-conce
 const Vision = () => {
   return (
     <>
-      <div className="flex lg:flex-row flex-col gap-4 ">
-      <div className="card lg:lg:w-96 bg-base-100 shadow-xl">
+      <div className=" grid md:grid-cols-2 lg:grid-cols-5 gap-4 ">
+      <div className="card  bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={logo1} />
         </figure>
@@ -20,7 +20,7 @@ const Vision = () => {
           </div>
         </div>
       </div>
-      <div className="card lg:w-96 bg-base-100 shadow-xl">
+      <div className="card   bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={logo2} />
         </figure>
@@ -32,7 +32,7 @@ const Vision = () => {
           </div>
         </div>
       </div>
-      <div className="card lg:w-96 bg-base-100 shadow-xl">
+      <div className="card   bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={logo3} />
         </figure>
@@ -44,7 +44,7 @@ const Vision = () => {
           </div>
         </div>
       </div>
-      <div className="card lg:w-96 bg-base-100 shadow-xl">
+      <div className="card   bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={logo4} />
         </figure>
@@ -56,7 +56,7 @@ const Vision = () => {
           </div>
         </div>
       </div>
-      <div className="card lg:w-96 bg-base-100 shadow-xl">
+      <div className="card   bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={logo5} />
         </figure>

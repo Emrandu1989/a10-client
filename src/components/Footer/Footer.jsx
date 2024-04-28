@@ -3,8 +3,8 @@
 const Footer = () => {
     return (
         <>
-              <footer className="footer px-2 py-4  lg:p-10 bg-base-200 text-base-content">
-   <div className="flex">
+              <footer className="footer px-2 py-4 md:pt-12 md:pl-12  mt-5  lg:pl-24 bg-base-200 text-base-content">
+   <div className="flex space-x-4  md:space-x-24">
    <nav className="flex flex-col">
     <h6 className="footer-title">Services</h6> 
     <a className="link link-hover">Branding</a>
@@ -12,21 +12,21 @@ const Footer = () => {
     <a className="link link-hover">Marketing</a>
     <a className="link link-hover">Advertisement</a>
   </nav> 
-  <nav>
+  <nav className="flex flex-col">
     <h6 className="footer-title">Company</h6> 
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav> 
-  <nav>
+  <nav className="flex flex-col">
     <h6 className="footer-title">Legal</h6> 
     <a className="link link-hover">Terms of use</a>
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
   </nav> 
    </div>
-  <form>
+  <form className="md:pl-24">
     <h6 className="footer-title">Newsletter</h6> 
     <fieldset className="form-control w-80">
       <label className="label">
