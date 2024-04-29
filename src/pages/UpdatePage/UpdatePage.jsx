@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const UpdatePage = () => {
   const { users } = useContext(AuthContext);
   const product = useLoaderData();
+  const navigate = useNavigate()
 
   const {
     _id,
@@ -54,12 +55,14 @@ const UpdatePage = () => {
             text: "Product updated successfully",
             icon: "success",
           });
+          navigate("/myArt&CraftList")
         } else {
           Swal.fire({
             title: "Success!",
             text: "Product updated successfully",
             icon: "success",
           });
+          navigate("/myArt&CraftList")
         }
       })
       .catch((error) => {
