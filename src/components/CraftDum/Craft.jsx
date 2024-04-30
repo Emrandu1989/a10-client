@@ -20,7 +20,7 @@ const Craft = () => {
     <div className="my-10">
       <h1 className="mb-10 underline  text-4xl font-semibold text-center">
         Art & Craft Categories
-      </h1>
+      </h1> 
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {datas.map((data) => (
